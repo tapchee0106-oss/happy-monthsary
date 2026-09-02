@@ -1,0 +1,1839 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>For You — A Little Something</title>
+
+
+<!-- Elegant Fonts -->
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: #11100f;
+
+    color: #eee7df;
+
+    font-family: "Montserrat", sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+
+    --background: #11100f;
+
+    --background-light: #191715;
+
+    --card: #1d1a18;
+
+    --cream: #eee7df;
+
+    --muted: #aaa19a;
+
+    --gold: #c99b6a;
+
+    --gold-light: #dfbd95;
+
+    --border: rgba(201,155,106,0.3);
+
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+
+    min-height: 100vh;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 70px 25px;
+
+    position: relative;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(201,155,106,0.07),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(201,155,106,0.05),
+            transparent 35%
+        ),
+
+        var(--background);
+
+}
+
+
+.page.active {
+
+    display: flex;
+
+}
+
+
+/* =====================================================
+   PAGE NUMBER
+===================================================== */
+
+.page-number {
+
+    position: absolute;
+
+    top: 35px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: var(--gold);
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+
+    width: min(850px, 94vw);
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.label {
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =====================================================
+   HEADINGS
+===================================================== */
+
+h1,
+h2,
+h3 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-weight: 500;
+
+}
+
+
+h1 {
+
+    font-size: clamp(3rem, 8vw, 6rem);
+
+    line-height: .95;
+
+}
+
+
+h2 {
+
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+
+    line-height: 1;
+
+}
+
+
+h3 {
+
+    font-size: 2rem;
+
+}
+
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.subtitle {
+
+    max-width: 550px;
+
+    margin: 30px auto;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 2;
+
+    font-weight: 300;
+
+}
+
+
+/* =====================================================
+   GOLD LINE
+===================================================== */
+
+.line {
+
+    width: 50px;
+
+    height: 1px;
+
+    background: var(--gold);
+
+    margin: 25px auto;
+
+}
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.envelope {
+
+    width: 90px;
+
+    height: 65px;
+
+    margin: 0 auto 35px;
+
+    border: 1px solid var(--gold);
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.envelope::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 62px;
+
+    height: 62px;
+
+    border-left: 1px solid var(--gold);
+
+    border-bottom: 1px solid var(--gold);
+
+    transform: rotate(-45deg);
+
+    top: -31px;
+
+    opacity: .6;
+
+}
+
+
+.envelope span {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 28px;
+
+    color: var(--gold);
+
+}
+
+
+/* =====================================================
+   SECRET WORD
+===================================================== */
+
+.secret-box {
+
+    margin-top: 40px;
+
+}
+
+
+.secret-label {
+
+    color: #aaa19a;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+
+}
+
+
+input {
+
+    width: min(350px, 90%);
+
+    background: transparent;
+
+    border: none;
+
+    border-bottom: 1px solid rgba(238,231,223,.3);
+
+    color: var(--cream);
+
+    padding: 15px;
+
+    text-align: center;
+
+    outline: none;
+
+    font-family: "Montserrat", sans-serif;
+
+    letter-spacing: 2px;
+
+    transition: .3s;
+
+}
+
+
+input:focus {
+
+    border-color: var(--gold);
+
+}
+
+
+input::placeholder {
+
+    color: #77716c;
+
+}
+
+
+/* =====================================================
+   HINT BUTTON
+===================================================== */
+
+.hint-button {
+
+    border: none;
+
+    background: transparent;
+
+    color: #77716c;
+
+    padding: 8px 5px;
+
+    margin-top: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    box-shadow: none;
+
+}
+
+
+.hint-button:hover {
+
+    background: transparent;
+
+    color: var(--gold);
+
+    transform: none;
+
+}
+
+
+/* =====================================================
+   HINT
+===================================================== */
+
+.hint {
+
+    max-width: 350px;
+
+    margin: 5px auto 10px;
+
+    color: var(--gold-light);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    font-style: italic;
+
+    opacity: 0;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition:
+
+        opacity .5s ease,
+
+        max-height .5s ease;
+
+}
+
+
+.hint.show {
+
+    opacity: 1;
+
+    max-height: 100px;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+
+    margin-top: 30px;
+
+    padding: 15px 42px;
+
+    border: 1px solid var(--gold);
+
+    background: transparent;
+
+    color: var(--gold-light);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: .35s;
+
+}
+
+
+button:hover {
+
+    background: var(--gold);
+
+    color: #11100f;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error {
+
+    height: 25px;
+
+    margin-top: 15px;
+
+    color: #b98272;
+
+    font-size: 11px;
+
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.image-placeholder {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    height: 350px;
+
+    margin: 45px auto;
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.55)
+        ),
+
+        url("pic.jpg")
+
+        center /  cover;
+
+    filter: grayscale(10%);
+
+    position: relative;
+
+    border: 1px solid rgba(201,155,106,.25);
+
+}
+
+
+.image-placeholder::after {
+
+    content: "OUR STORY";
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 25px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   QUOTE
+===================================================== */
+
+.quote {
+
+    max-width: 700px;
+
+    margin: 50px auto;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(1.8rem, 4vw, 3rem);
+
+    line-height: 1.35;
+
+    color: var(--cream);
+
+}
+
+
+/* =====================================================
+   REASONS
+===================================================== */
+
+.reasons {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-top: 55px;
+
+}
+
+
+.reason {
+
+    padding: 35px 20px;
+
+    border-top: 1px solid var(--border);
+
+    border-bottom: 1px solid rgba(255,255,255,.05);
+
+    transition: .3s;
+
+}
+
+
+.reason:hover {
+
+    border-top-color: var(--gold);
+
+    transform: translateY(-5px);
+
+}
+
+
+.reason-number {
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.reason h3 {
+
+    margin-bottom: 15px;
+
+    font-size: 25px;
+
+}
+
+
+.reason p {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter-wrapper {
+
+    max-width: 720px;
+
+    margin: 50px auto;
+
+    padding: 55px;
+
+    background: #e7ded2;
+
+    color: #29231e;
+
+    text-align: left;
+
+    position: relative;
+
+    box-shadow:
+
+        0 30px 80px rgba(0,0,0,.35);
+
+}
+
+
+.letter-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px solid rgba(100,70,40,.2);
+
+    pointer-events: none;
+
+}
+
+
+.letter-title {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 35px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.letter {
+
+    white-space: pre-line;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 20px;
+
+    line-height: 1.75;
+
+}
+
+
+/* =====================================================
+   FINAL QUESTION
+===================================================== */
+
+.final-question {
+
+    font-size: clamp(2.7rem, 7vw, 5rem);
+
+    max-width: 800px;
+
+    margin: 30px auto;
+
+}
+
+
+.final-subtitle {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 2;
+
+    max-width: 500px;
+
+    margin: 25px auto;
+
+}
+
+
+/* =====================================================
+   FINAL BUTTONS
+===================================================== */
+
+.final-buttons {
+
+    margin-top: 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.yes-button {
+
+    background: var(--gold);
+
+    color: #11100f;
+
+    min-width: 190px;
+
+}
+
+
+.yes-button:hover {
+
+    background: var(--gold-light);
+
+    color: #11100f;
+
+}
+
+
+.no-button {
+
+    min-width: 190px;
+
+}
+
+
+/* =====================================================
+   FINAL ANSWER
+===================================================== */
+
+#answer {
+
+    margin-top: 40px;
+
+    color: var(--gold-light);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #625c57;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =====================================================
+   FADE ANIMATION
+===================================================== */
+
+.fade {
+
+    animation:
+
+        fadeIn 1.2s ease forwards;
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   YES BUTTON POPUP
+===================================================== */
+
+#yesPopup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(0, 0, 0, .78);
+    backdrop-filter: blur(7px);
+}
+
+#yesPopup.show {
+    display: flex;
+    animation: popupFade .35s ease forwards;
+}
+
+.yes-popup-card {
+    width: min(430px, 92vw);
+    padding: 22px;
+    background: #1d1a18;
+    border: 1px solid var(--gold);
+    box-shadow: 0 30px 90px rgba(0,0,0,.6);
+    text-align: center;
+    animation: popupScale .45s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+.yes-popup-image {
+    width: 100%;
+    max-height: 430px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 22px;
+    border: 1px solid rgba(201,155,106,.35);
+}
+
+.yes-popup-message {
+    color: var(--gold-light);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+@keyframes popupFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popupScale {
+    from { opacity: 0; transform: scale(.88) translateY(15px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .page {
+
+        padding: 80px 20px;
+
+    }
+
+
+    .reasons {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .image-placeholder {
+
+        height: 280px;
+
+    }
+
+
+    .letter-wrapper {
+
+        padding: 35px 25px;
+
+    }
+
+
+    .letter {
+
+        font-size: 18px;
+
+    }
+
+
+    .final-buttons {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+
+    button {
+
+        width: 220px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<!-- =====================================================
+     PAGE 1 — LANDING PAGE
+===================================================== -->
+
+<section
+    class="page active"
+    id="page1"
+>
+
+    <div class="page-number">
+        01 — 05
+    </div>
+
+
+    <div class="container fade">
+
+
+        <div class="envelope">
+
+            <span>✦</span>
+
+        </div>
+
+
+        <div class="label">
+
+            Happy monthiversary, my love.
+
+        </div>
+
+
+        <h1>
+
+            Just for you.
+
+        </h1>
+
+
+        <div class="line"></div>
+
+
+        <p class="subtitle">
+
+            I wanted to give you something a little more special this time.
+
+            <br><br>
+
+            A small space made just for us—something private, something meaningful, and something only you can unlock
+
+        </p>
+
+
+        <div class="secret-box">
+
+
+            <div class="secret-label">
+
+                Enter our secret word
+
+            </div>
+
+
+            <input
+                type="password"
+                id="secret"
+                placeholder="Your answer..."
+            >
+
+
+            <div
+                class="error"
+                id="error"
+            >
+            </div>
+
+
+            <!-- HINT -->
+
+            <button
+                class="hint-button"
+                onclick="showHint()"
+            >
+
+                Need a hint?
+
+            </button>
+
+
+            <p
+                id="hint"
+                class="hint"
+            >
+
+                A four-letter word that I call you every day.
+
+
+            </p>
+
+
+            <button onclick="unlock()">
+
+                Open
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer">
+
+       Always yours, in every chapter that comes next.
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 2 — WELCOME
+===================================================== -->
+
+<section
+    class="page"
+    id="page2"
+>
+
+    <div class="page-number">
+        02 — 05
+    </div>
+
+
+    <div class="container fade">
+
+
+        <div class="label">
+
+            Hello, Habi
+
+        </div>
+
+
+        <h2>
+
+            I'm so glad you found your way here, my Habi.
+
+        </h2>
+
+
+        <div class="line"></div>
+
+
+        <p class="quote">
+
+            "I never noticed the exact moment you became important to me. 
+                I only know that somewhere along the way, you became unforgettable."
+
+        </p>
+
+
+        <div class="image-placeholder">
+        </div>
+
+
+        <p class="subtitle">
+
+            If you're reading this,
+            I just want you to know
+            that you mean more to me
+            than I probably say enough.
+
+        </p>
+
+
+        <button onclick="showPage(3)">
+
+            Continue →
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 3 — THINGS I LOVE
+===================================================== -->
+
+<section
+    class="page"
+    id="page3"
+>
+
+    <div class="page-number">
+        03 — 05
+    </div>
+
+
+    <div class="container fade">
+
+
+        <div class="label">
+
+            A few things
+
+        </div>
+
+
+        <h2>
+
+            I love about you.
+
+        </h2>
+
+
+        <div class="line"></div>
+
+
+        <div class="reasons">
+
+
+            <div class="reason">
+
+                <div class="reason-number">
+                    01
+                </div>
+
+
+                <h3>
+                    Your Devotion.
+                </h3>
+
+
+                <p>
+
+                    You care so quietly, yet it moves my whole world.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="reason">
+
+                <div class="reason-number">
+                    02
+                </div>
+
+
+                <h3>
+                    Your presence.
+                </h3>
+
+
+                <p>
+
+                    Somehow ordinary moments
+                    feel different when you're there.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="reason">
+
+                <div class="reason-number">
+                    03
+                </div>
+
+
+                <h3>
+                    Just You.
+                </h3>
+
+
+                <p>
+
+                    No explanations, no requirements. My heart chose you, plain and simple.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <button onclick="showPage(4)">
+
+            Continue →
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 4 — LOVE LETTER
+===================================================== -->
+
+<section
+    class="page"
+    id="page4"
+>
+
+    <div class="page-number">
+        04 — 05
+    </div>
+
+
+    <div class="container fade">
+
+
+        <div class="label">
+
+            Something I wanted to say
+
+        </div>
+
+
+        <h2>
+
+            A letter for you.
+
+        </h2>
+
+
+        <div class="letter-wrapper">
+
+
+            <div class="letter-title">
+
+                My Habi,
+
+            </div>
+
+
+            <div class="letter">
+
+Ang dami ko sanang gustong sabihin sayo, pero sana mas maramdaman mo yung mga sinasabi ko through my actions kaysa sa words ko.
+
+You’ve become someone really important to me. Yung taong gusto kong kausap kahit late na, yung gusto kong kasama sa mga random na tawanan, sa mga simpleng kwentuhan, at sa paggawa ng memories kahit hindi tayo magkasama physically.
+
+Alam kong hindi madali yung LDR natin. May mga araw na nami-miss kita nang sobra, may mga times na gusto ko lang sana nandyan ka para mayakap kita or makasama kahit wala naman tayong ginagawa. Pero kahit may distance between us, hindi ibig sabihin na kailangan maging distant din yung feelings natin.
+
+Alam ko rin na hindi ako perfect. May mga times na magkakamali ako, may masasabi akong hindi ko dapat sabihin, or may moments na hindi magiging madali para sa atin. Pero kahit ganun, gusto kong malaman mo na willing akong umintindi, matuto, magbago, and most importantly, piliin ka pa rin.
+
+Thank you for being part of my life. Thank you sa lahat ng conversations natin, sa mga tawanan, sa mga simpleng moments, sa patience mo, and sa lahat ng memories na nabuo natin kahit magkalayo tayo.
+
+And someday, sana hindi na lang through calls, chats, or video calls yung moments natin. Sana dumating yung time na makasama na kita for real, makapag-date tayo, makapaglakad together, and just enjoy each other's company without worrying about the distance.
+
+For now, kahit malayo tayo sa isa't isa, I want you to know na nandito lang ako. I’ll keep choosing you, even on the days when the distance feels hard.
+
+Sana beginning pa lang 'to ng mas marami pang memories, tawanan, late-night talks, adventures, and moments na tayo lang.
+
+I love you. And kahit gaano pa tayo kalayo, sana lagi mong maalala na ikaw pa rin yung gusto kong piliin. ❤️
+
+
+            </div>
+
+
+            <br>
+
+
+            <div
+                style="
+                font-family:'Cormorant Garamond';
+                font-size:25px;
+                "
+            >
+
+                — Yours, always.
+
+            </div>
+
+
+        </div>
+
+
+        <button onclick="showPage(5)">
+
+            One last thing →
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 5 — FINAL QUESTION
+===================================================== -->
+
+<section
+    class="page"
+    id="page5"
+>
+
+    <div class="page-number">
+        05 — 05
+    </div>
+
+
+    <div class="container fade">
+
+
+        <div class="label">
+
+            One last question
+
+        </div>
+
+
+        <h1 class="final-question">
+
+            Will you keep making
+            memories with me?
+
+        </h1>
+
+
+        <div class="line"></div>
+
+
+        <p class="final-subtitle">
+
+            Because I don't want this little website
+            to be the end of our story.
+
+            <br>
+
+            I want it to be the beginning
+            of many more moments together.
+
+        </p>
+
+
+        <div class="final-buttons">
+
+
+            <button
+                class="yes-button"
+                onclick="sayYes()"
+            >
+
+                Yes, always
+
+            </button>
+
+
+            <button
+                class="no-button"
+                id="noButton"
+                onclick="moveButton()"
+            >
+
+                Not yet
+
+            </button>
+
+
+        </div>
+
+
+        <div id="answer">
+        </div>
+
+
+        <div
+            style="
+            margin-top:70px;
+            color:#625c57;
+            font-size:10px;
+            letter-spacing:3px;
+            "
+        >
+
+            No matter what,
+            you will always mean the world to me.
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =====================================================
+     YES BUTTON POPUP
+===================================================== -->
+
+<div id="yesPopup" onclick="closeYesPopup(event)">
+    <div class="yes-popup-card">
+        <img class="yes-popup-image" src="asd.jpg" alt="A special memory">
+        <div class="yes-popup-message">
+            Thank you for choosing me. ❤️
+        </div>
+    </div>
+</div>
+
+<script>
+
+const SECRET = "habi";
+
+
+
+/* =====================================================
+   CHANGE PAGE
+===================================================== */
+
+function showPage(number) {
+
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+
+            page.classList.remove("active");
+
+        });
+
+
+    const page =
+        document.getElementById(
+            "page" + number
+        );
+
+
+    page.classList.add("active");
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+
+/* =====================================================
+   UNLOCK WEBSITE
+===================================================== */
+
+function unlock() {
+
+
+    const input =
+        document
+        .getElementById("secret")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const error =
+        document.getElementById("error");
+
+
+    if (input === SECRET) {
+
+
+        error.textContent = "";
+
+
+        showPage(2);
+
+
+    } else {
+
+
+        error.textContent =
+            "That's not it. Try again.";
+
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ENTER KEY SUPPORT
+===================================================== */
+
+document
+    .getElementById("secret")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                unlock();
+
+            }
+
+        }
+    );
+
+
+
+/* =====================================================
+   SHOW HINT
+===================================================== */
+
+function showHint() {
+
+
+    const hint =
+        document.getElementById("hint");
+
+
+    hint.classList.toggle("show");
+
+
+}
+
+
+
+/* =====================================================
+   YES BUTTON
+===================================================== */
+
+function sayYes() {
+
+    const answer =
+        document.getElementById("answer");
+
+    // Keep the existing message.
+    answer.innerHTML =
+        "Thank you for choosing me. ❤️";
+
+    // Show the picture popup every time YES is clicked.
+    const popup =
+        document.getElementById("yesPopup");
+
+    popup.classList.remove("show");
+    void popup.offsetWidth; // restart animation on repeated clicks
+    popup.classList.add("show");
+
+    createParticles();
+}
+
+
+// Close popup when clicking the dark area outside the card.
+function closeYesPopup(event) {
+
+    if (event.target.id === "yesPopup") {
+        event.target.classList.remove("show");
+    }
+
+}
+
+
+
+/* =====================================================
+   RUNNING "NOT YET" BUTTON
+===================================================== */
+
+function moveButton() {
+
+
+    const button =
+        document.getElementById(
+            "noButton"
+        );
+
+
+    button.style.position =
+        "fixed";
+
+
+    const maxX =
+        window.innerWidth -
+        button.offsetWidth -
+        30;
+
+
+    const maxY =
+        window.innerHeight -
+        button.offsetHeight -
+        30;
+
+
+    button.style.left =
+        Math.max(
+            20,
+            Math.random() * maxX
+        ) + "px";
+
+
+    button.style.top =
+        Math.max(
+            20,
+            Math.random() * maxY
+        ) + "px";
+
+
+}
+
+
+
+/* =====================================================
+   SUBTLE GOLD PARTICLES
+===================================================== */
+
+function createParticles() {
+
+
+    for (
+        let i = 0;
+        i < 20;
+        i++
+    ) {
+
+
+        const particle =
+            document.createElement("div");
+
+
+        particle.innerHTML = "✦";
+
+
+        particle.style.position =
+            "fixed";
+
+
+        particle.style.left =
+            Math.random() * 100 + "%";
+
+
+        particle.style.top =
+            "100%";
+
+
+        particle.style.color =
+            "#c99b6a";
+
+
+        particle.style.fontSize =
+            (10 + Math.random() * 15)
+            + "px";
+
+
+        particle.style.pointerEvents =
+            "none";
+
+
+        particle.style.transition =
+            "all 3s ease";
+
+
+        document.body.appendChild(
+            particle
+        );
+
+
+        setTimeout(() => {
+
+
+            particle.style.top =
+                Math.random() * 60 + "%";
+
+
+            particle.style.opacity =
+                "0";
+
+
+            particle.style.transform =
+                "translateY(-100px)";
+
+
+        }, 50);
+
+
+        setTimeout(() => {
+
+
+            particle.remove();
+
+
+        }, 3500);
+
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+```
